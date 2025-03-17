@@ -27,5 +27,8 @@ dnf5 install --setopt=install_weak_deps=False -y \
     code \
     resilio-sync
 
+# https://aur.archlinux.org/cgit/aur.git/tree/rslsync_user.service?h=rslsync
+sed -i 's@WantedBy=multi-user.target@WantedBy=default.target@g' "/usr/lib/systemd/user/resilio-sync.service"
+
 /ctx/simplenote.sh
 /ctx/google-chrome.sh
