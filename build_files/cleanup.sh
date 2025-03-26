@@ -25,9 +25,3 @@ for repo in "${COPR_REPOS[@]}"; do
 done
 
 dnf5 clean all
-
-rm -rf /tmp/*
-rm -rf /var/*
-ostree container commit
-mkdir -p /tmp
-mkdir -p /var/tmp && chmod -R 1777 /var/tmp
