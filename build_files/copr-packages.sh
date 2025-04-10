@@ -4,7 +4,6 @@ set ${SET_X:+-x} -eou pipefail
 
 COPR_REPOS=(
     zeno/scrcpy
-    the4runner/firefox-dev
 )
 
 for repo in "${COPR_REPOS[@]}"; do
@@ -17,4 +16,8 @@ COPR_PACKAGES=(
 
 dnf5 install --setopt=install_weak_deps=False -y "${COPR_PACKAGES[@]}"
 
-/ctx/firefox-dev.sh
+for repo in "${COPR_REPOS[@]}"; do
+    dnf5 -y copr disable "${repo}"
+done
+
+# /ctx/firefox-dev.sh

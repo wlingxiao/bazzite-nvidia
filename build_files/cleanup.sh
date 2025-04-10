@@ -15,13 +15,4 @@ for repo in "${repos[@]}"; do
     fi
 done
 
-COPR_REPOS=(
-    zeno/scrcpy
-    the4runner/firefox-dev
-)
-
-for repo in "${COPR_REPOS[@]}"; do
-    dnf5 -y copr disable "${repo}"
-done
-
 dnf5 clean all
